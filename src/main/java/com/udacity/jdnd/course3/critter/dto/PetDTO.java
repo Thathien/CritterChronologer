@@ -1,4 +1,4 @@
-package com.udacity.jdnd.course3.critter.dto.request;
+package com.udacity.jdnd.course3.critter.dto;
 
 import java.time.LocalDate;
 
