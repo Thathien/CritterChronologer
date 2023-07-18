@@ -11,7 +11,7 @@ import com.udacity.jdnd.course3.critter.entity.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-	
-	@Query(value = "", nativeQuery=true)
+
+	@Query(value = "SELECT * FROM emplyee a INNER JOIN emplyee_day_available b ON a.id=b.employee_id WHERE day_available = :date", nativeQuery = true)
 	List<Employee> findByDaysAvailable(DayOfWeek date);
 }

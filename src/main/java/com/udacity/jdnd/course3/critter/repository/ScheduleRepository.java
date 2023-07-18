@@ -11,9 +11,9 @@ import com.udacity.jdnd.course3.critter.entity.Schedule;
 @Repository
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
-	@Query(value = "SELECT * FROM ", nativeQuery=true)
-	List<Schedule> getSchedulebyEmployeeId(Long id);
+	@Query(value = "SELECT * FROM schedule a INNER JOIN schedule_employees b on a.id=b.schedule_id WHERE a.id :idEmployee", nativeQuery = true)
+	List<Schedule> getSchedulebyEmployeeId(Long idEmployee);
 
-	@Query(value = "SELECT * FROM ", nativeQuery=true)
-	List<Schedule> getSchedulebyPetId(Long id);
+	@Query(value = "SSELECT * FROM schedule a INNER JOIN schedule_ptes b on a.id=b.schedule_id WHERE a.id :idPet", nativeQuery = true)
+	List<Schedule> getSchedulebyPetId(Long idPet);
 }

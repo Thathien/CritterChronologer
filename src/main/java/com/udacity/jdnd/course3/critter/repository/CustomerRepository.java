@@ -12,6 +12,4 @@ import com.udacity.jdnd.course3.critter.entity.Employee;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-	@Query(value = "SELECT * FROM ", nativeQuery=true)
-	List<Employee> findDayAvaiable(DayOfWeek date);
 }
