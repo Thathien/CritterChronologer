@@ -50,6 +50,7 @@ public class ScheduleController {
 	}
 
 	@GetMapping
+	@ResponseBody
 	public List<ScheduleDTO> getAllSchedules() {
 		List<Schedule> schedules = scheduleService.getAllShedule();
 		return convertListScheduleToListScheduleDTO(schedules);

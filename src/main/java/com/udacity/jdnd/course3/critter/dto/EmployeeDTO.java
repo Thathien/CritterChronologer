@@ -18,5 +18,5 @@ public class EmployeeDTO {
     private long id;
     private String name;
     private Set<EmployeeSkill> skills;
-    private Set<DayOfWeek> daysAvailable;
+    private Set<DayOfWeek> dayAvailable;
 }

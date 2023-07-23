@@ -31,11 +31,11 @@ public class SheduleServives {
 	}
 
 	public List<Schedule> getSchedulebyEmployeeId(Long id) {
-		return scheduleRepository.getSchedulebyEmployeeId(id);
+		return scheduleRepository.findSchedulesByEmployeesId(id);
 	}
 
 	public List<Schedule> getSchedulebyPetId(Long id) {
-		return scheduleRepository.getSchedulebyPetId(id);
+		return scheduleRepository.findSchedulesByPetsId(id);
 	}
 
 }

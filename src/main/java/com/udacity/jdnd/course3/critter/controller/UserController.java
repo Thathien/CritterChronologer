@@ -3,14 +3,7 @@ package com.udacity.jdnd.course3.critter.controller;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.*;
 import com.udacity.jdnd.course3.critter.dto.CustomerDTO;
 import com.udacity.jdnd.course3.critter.dto.EmployeeDTO;
 import com.udacity.jdnd.course3.critter.dto.EmployeeRequestDTO;
@@ -82,7 +75,8 @@ public class UserController {
 		return ConvertDTO.convertEmployeeToEmployeeDTO(employee);
 	}
 
-	@PutMapping("/employee/{employeeId}")
+	//@PutMapping("/employee/{employeeId}")
+	@RequestMapping(value = "/employee/{employeeId}", produces = "application/json",method = RequestMethod.PUT)
 	@ResponseBody
 	public void setAvailability(@RequestBody Set<DayOfWeek> daysAvailable, @PathVariable long employeeId) {
 		employeeService.setDayAvaiable(daysAvailable, employeeId);

@@ -29,7 +29,7 @@ public class EmployeeServives {
 	}
 
 	public List<Employee> findByDayAvaiable(DayOfWeek dayOfWeek) {
-		return employeeRepository.findByDaysAvailable(dayOfWeek);
+		return employeeRepository.findByDayAvailable(dayOfWeek);
 	}
 
 	public void setDayAvaiable(Set<DayOfWeek> dayOfWeeksAvaiable, Long id) {
