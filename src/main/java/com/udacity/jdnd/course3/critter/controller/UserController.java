@@ -2,7 +2,6 @@ package com.udacity.jdnd.course3.critter.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.udacity.jdnd.course3.critter.dto.CustomerDTO;
 import com.udacity.jdnd.course3.critter.dto.EmployeeDTO;
@@ -27,7 +26,7 @@ import java.util.Set;
  * Includes requests for both customers and employees. Splitting this into separate user and customer controllers
  * would be fine too, though that is not part of the required scope for this class.
  */
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
