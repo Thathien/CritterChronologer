@@ -29,7 +29,7 @@ public class Pet {
 	private Long id;
 
 	@Enumerated(EnumType.STRING)
-	private PetType petType;
+	private PetType type;
 
 	@Nationalized
 	private String name;

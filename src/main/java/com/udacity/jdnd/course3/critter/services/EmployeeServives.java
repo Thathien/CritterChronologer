@@ -29,12 +29,12 @@ public class EmployeeServives {
 	}
 
 	public List<Employee> findByDayAvaiable(DayOfWeek dayOfWeek) {
-		return employeeRepository.findByDayAvailable(dayOfWeek);
+		return employeeRepository.findByDaysAvailable(dayOfWeek);
 	}
 
 	public void setDayAvaiable(Set<DayOfWeek> dayOfWeeksAvaiable, Long id) {
 		Employee employee = getEmployeeById(id);
-		employee.setDayAvailable(dayOfWeeksAvaiable);
+		employee.setDaysAvailable(dayOfWeeksAvaiable);
 		employeeRepository.save(employee);
 	}
 

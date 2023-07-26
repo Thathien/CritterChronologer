@@ -25,6 +25,6 @@ public class Employee extends User {
 
 	@ElementCollection
 	@Enumerated(EnumType.STRING)
-	private Set<DayOfWeek> dayAvailable = new HashSet<>();
+	private Set<DayOfWeek> daysAvailable = new HashSet<>();
 
 }

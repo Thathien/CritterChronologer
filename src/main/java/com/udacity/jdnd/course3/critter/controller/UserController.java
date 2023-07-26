@@ -41,7 +41,6 @@ public class UserController {
 	private PetServives petService;
 
 	@PostMapping("/customer")
-	@ResponseBody
 	public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO) {
 		Customer customer = convertCustomerDTOToCustomer(customerDTO);
 		customer = customerService.save(customer);
@@ -49,7 +48,6 @@ public class UserController {
 	}
 
 	@GetMapping("/customer")
-	@ResponseBody
 	public List<CustomerDTO> getAllCustomers() {
 		List<Customer> customers = customerService.findAllCustomers();
 		List<CustomerDTO> customerDTOs = new ArrayList<>();
@@ -60,14 +58,12 @@ public class UserController {
 	}
 
 	@GetMapping("/customer/pet/{petId}")
-	@ResponseBody
 	public CustomerDTO getOwnerByPet(@PathVariable long petId) {
 		Pet pet = petService.getPetByID(petId);
 		return ConvertDTO.convertCustomerToCustomerDTO(pet.getCustomer());
 	}
 
 	@PostMapping("/employee")
-	@ResponseBody
 	public EmployeeDTO saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		Employee employee = ConvertDTO.convertEmployeeDTOToEmployee(employeeDTO);
 		employee = employeeService.save(employee);
@@ -75,25 +71,21 @@ public class UserController {
 	}
 
 	@PostMapping("/employee/{employeeId}")
-	@ResponseBody
 	public EmployeeDTO getEmployee(@PathVariable long employeeId) {
 		Employee employee = employeeService.getEmployeeById(employeeId);
 		return ConvertDTO.convertEmployeeToEmployeeDTO(employee);
 	}
 
-	//@PutMapping("/employee/{employeeId}")
-	@RequestMapping(value = "/employee/{employeeId}", produces = "application/json",method = RequestMethod.PUT)
-	@ResponseBody
+	@PutMapping("/employee/{employeeId}")
+	//@RequestMapping(value = "/employee/{employeeId}", produces = "application/json",method = RequestMethod.PUT)
 	public void setAvailability(@RequestBody Set<DayOfWeek> daysAvailable, @PathVariable long employeeId) {
 		employeeService.setDayAvaiable(daysAvailable, employeeId);
 	}
 
-	@ResponseBody
 	@GetMapping("/employee/availability")
 	public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeRequestDTO employeeRequestDTO) {
 		Set<EmployeeSkill> employeeSkills = employeeRequestDTO.getSkills();
 		DayOfWeek daysAvailable = employeeRequestDTO.getDate().getDayOfWeek();
-		System.out.println(daysAvailable);
 		List<Employee> employees = employeeService.findByDayAvaiable(daysAvailable);
 		List<EmployeeDTO> employeeDTOs = new ArrayList<>();
 		for (Employee employee : employees) {

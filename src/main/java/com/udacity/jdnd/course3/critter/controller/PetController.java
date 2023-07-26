@@ -38,7 +38,6 @@ public class PetController {
 	}
 
 	@GetMapping("/{petId}")
-	@ResponseBody
 	public PetDTO getPet(@PathVariable long petId) {
 		Pet pet = petService.getPetByID(petId);
 		return ConvertDTO.convertPetToPetDTO(pet);
@@ -50,7 +49,6 @@ public class PetController {
 	}
 
 	@GetMapping("/owner/{ownerId}")
-	@ResponseBody
 	public List<PetDTO> getPetsByOwner(@PathVariable long ownerId) {
 		Customer customer = customerService.findCustomerById(ownerId);
 		List<Pet> pets = customer.getPets();

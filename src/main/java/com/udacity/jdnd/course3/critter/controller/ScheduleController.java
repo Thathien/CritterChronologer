@@ -50,28 +50,24 @@ public class ScheduleController {
 	}
 
 	@GetMapping
-	@ResponseBody
 	public List<ScheduleDTO> getAllSchedules() {
 		List<Schedule> schedules = scheduleService.getAllShedule();
 		return convertListScheduleToListScheduleDTO(schedules);
 	}
 
 	@GetMapping("/pet/{petId}")
-	@ResponseBody
 	public List<ScheduleDTO> getScheduleForPet(@PathVariable long petId) {
 		List<Schedule> schedules = scheduleService.getSchedulebyPetId(petId);
 		return convertListScheduleToListScheduleDTO(schedules);
 	}
 
 	@GetMapping("/employee/{employeeId}")
-	@ResponseBody
 	public List<ScheduleDTO> getScheduleForEmployee(@PathVariable long employeeId) {
 		List<Schedule> schedules = scheduleService.getSchedulebyEmployeeId(employeeId);
 		return convertListScheduleToListScheduleDTO(schedules);
 	}
 
 	@GetMapping("/customer/{customerId}")
-	@ResponseBody
 	public List<ScheduleDTO> getScheduleForCustomer(@PathVariable long customerId) {
 		Customer customer = customerService.findCustomerById(customerId);
 		List<ScheduleDTO> scheduleDTOs = new ArrayList<>();
